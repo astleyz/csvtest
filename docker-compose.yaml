@@ -1,0 +1,14 @@
+version: "3"
+services:
+  peopledb:
+    container_name: people_db
+    restart: always
+    image: postgres:15.2
+    environment:
+      - POSTGRES_USER=$DB_USER
+      - POSTGRES_PASSWORD=$DB_PASSWORD
+      - POSTGRES_DB=$DB_NAME
+    volumes:
+      - ./people_db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
